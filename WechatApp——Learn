@@ -1,0 +1,77 @@
+开发工具：微信开发者工具
+简要说明：
+[app.json]:
+{
+ "pages": [
+    "pages/home/home",
+    "pages/mine/mine",
+    "pages/demo2/demo2",
+    "pages/search/search",
+    "pages/index/index"],
+    <!--
+    (注意：app.json文件中不可添加注释，此处仅为说明)
+    显示顺序与pages文件排列顺序相同，如home->mine等等。
+    可直接通过pages界面进行文件创建，其中pages的作用表示文件的路径。
+    --！>
+    
+    
+     "window": {
+    "backgroundColor": "white",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#0094FF",
+    "navigationBarTitleText": "点餐栏",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh":true
+  },
+  <!--
+  window为导航栏界面：
+  navigationBarBackgroundColor：导航栏背景颜色
+  navigationBarTitleText：导航栏文本
+  navigationBarTextStyle: 导航栏字体颜色
+  enablePullDownRefresh：是否开启当前页面下拉刷新，boolean
+  backgroundTextStyle：下拉 loading 的样式，仅支持 dark / light
+  backgroundColor：窗口背景颜色
+  --！>
+  
+  
+  "tabBar": {
+    "list": [
+      {
+      "pagePath": "pages/home/home",
+      "text": "首页",
+      "iconPath": "icon/home2.png",
+      "selectedIconPath": "icon/home.png"
+    },{
+      "pagePath": "pages/demo2/demo2",
+      "text": "商店",
+      "iconPath": "icon/shop2.png",
+      "selectedIconPath": "icon/shop.png"
+    },{
+      "pagePath": "pages/search/search",
+      "text": "搜索",
+      "iconPath": "icon/search2.png",
+      "selectedIconPath": "icon/search.png"
+    },{
+      "pagePath": "pages/mine/mine",
+      "text": "账户",
+      "iconPath": "icon/mine2.png",
+      "selectedIconPath": "icon/mine.png"
+    }
+  ]
+  },
+  <!--
+  TabBar主要作用为一个菜单栏，其客户端窗口的底部或顶部有 tab 栏可以切换页面。
+  
+  list：tab 的列表，详见 list 属性说明，最少 2 个、最多 5 个 tab，Array
+  pagePath：页面路径，必须在 pages 中先定义,String
+  text:tab 上按钮文字,String
+  iconPath:图片路径，icon 大小限制为 40kb，建议尺寸为 81px * 81px，不支持网络图片。当 position 为 top 时，不显示 icon。String
+  selectedIconPath:选中时的图片路径，icon 大小限制为 40kb，建议尺寸为 81px * 81px，不支持网络图片。当 position 为 top 时，不显示 icon。String
+  position：tabBar 的位置，仅支持 bottom / top，默认在底部。
+  color：tab 上的文字默认颜色，仅支持十六进制颜色。
+  selectedColor：tab 上的文字选中时的颜色，仅支持十六进制颜色。
+  backgroundColor：tab 的背景色，仅支持十六进制颜色。
+  borderStyle：tabbar 上边框的颜色， 仅支持 black / white
+  
+  
+}
