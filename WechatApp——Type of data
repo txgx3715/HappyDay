@@ -20,3 +20,139 @@ var PI = 3.141592653589793;
       toFixed
       toExponential
       toPrecision
+      
+      详见ES5
+     
+     
+2.String
+两种写法："Hello World"
+          'Hello World'
+      
+属性
+constructor：返回字符串 "String"。
+length
+
+
+方法：
+toString
+valueOf
+charAt
+charCodeAt
+concat
+indexOf
+lastIndexOf
+localeCompare
+match
+replace
+search
+slice
+split
+substring
+toLowerCase
+toLocaleLowerCase
+toUpperCase
+toLocaleUpperCase
+trim
+
+
+3.boolean
+语法：ture和false
+
+属性：
+constructor：返回字符串 "Boolean"。
+
+方法：
+toString
+valueOf
+
+4.object
+语法
+object 是一种无序的键值对。
+
+演示方法：
+var o = {} //生成一个新的空对象
+
+//生成一个新的非空对象
+o = {
+  'string'  : 1,  //object 的 key 可以是字符串
+  const_var : 2,  //object 的 key 也可以是符合变量定义规则的标识符
+  func      : {}, //object 的 value 可以是任何类型
+};
+
+//对象属性的读操作
+console.log(1 === o['string']);
+console.log(2 === o.const_var);
+
+//对象属性的写操作
+o['string']++;
+o['string'] += 10;
+o.const_var++;
+o.const_var += 10;
+
+//对象属性的读操作
+console.log(12 === o['string']);
+console.log(13 === o.const_var);
+
+属性：
+constructor：返回字符串 "Object"。
+console.log("Object" === {k:"1",v:"2"}.constructor)
+
+方法：
+toString：返回字符串 "[object Object]"
+
+5.function
+
+两种定义方法：
+//方法 1
+function a (x) {
+  return x;
+}
+
+//方法 2
+var b = function (x) {
+  return x;
+  }
+  
+ function 同时也支持以下的语法（匿名函数，闭包等）：
+ 
+ var a = function (x) {
+  return function () { return x;}
+}
+
+
+var b = a(100);
+console.log( 100 === b() );
+
+6.arguments
+
+简要说明：argument(actual parameter)指的是函数调用时的实际参数。
+
+function 里面可以使用 arguments 关键词。该关键词目前只支持以下的属性：
+
+length: 传递给函数的参数个数。
+[index]: 通过 index 下标可以遍历传递给函数的每个参数。
+
+
+var a = function(){
+  console.log(3 === arguments.length);
+  console.log(100 === arguments[0]);
+  console.log(200 === arguments[1]);
+  console.log(300 === arguments[2]);
+};
+a(100,200,300);
+
+属性：
+constructor：返回字符串 "Function"。
+length：返回函数的形参个数。
+
+方法：
+toString：返回字符串 "[function Function]"。
+
+示例：
+var func = function (a,b,c) { }
+
+console.log("Function" === func.constructor);
+console.log(3 === func.length);
+console.log("[function Function]" === func.toString());
+
+#此处简要说明js中等号之间的差异：== equality 等同，=== identity 恒等。
