@@ -156,3 +156,135 @@ console.log(3 === func.length);
 console.log("[function Function]" === func.toString());
 
 #此处简要说明js中等号之间的差异：== equality 等同，=== identity 恒等。
+
+7.array
+
+语法
+
+array 支持以下的定义方式：
+
+var a = [];      //生成一个新的空数组
+
+a = [1,"2",{},function(){}];  //生成一个新的非空数组，数组元素可以是任何类型
+
+属性
+
+constructor：返回字符串 "Array"。
+length
+<!--
+除constructor外属性的具体含义请参考 ES5 标准。\
+--!>
+
+方法
+toString
+concat
+join
+pop
+push
+reverse
+shift
+slice
+sort
+splice
+unshift
+indexOf
+lastIndexOf
+every
+some
+forEach
+map
+filter
+reduce
+reduceRight
+
+8.date
+
+语法
+
+生成 date 对象需要使用 getDate函数, 返回一个当前时间的对象。
+
+getDate()
+getDate(milliseconds)
+getDate(datestring)
+getDate(year, month[, date[, hours[, minutes[, seconds[, milliseconds]]]]])
+
+参数
+
+milliseconds: 从1970年1月1日00:00:00 UTC开始计算的毫秒数
+datestring: 日期字符串，其格式为："month day, year hours:minutes:seconds"
+
+示例代码：
+
+var date = getDate(); //返回当前时间对象
+
+date = getDate(1500000000000);
+// Fri Jul 14 2017 10:40:00 GMT+0800 (中国标准时间)
+date = getDate('2017-7-14');
+// Fri Jul 14 2017 00:00:00 GMT+0800 (中国标准时间)
+date = getDate(2017, 6, 14, 10, 40, 0, 0);
+// Fri Jul 14 2017 10:40:00 GMT+0800 (中国标准时间)
+属性
+constructor：返回字符串 “Date”。
+方法
+toString
+toDateString
+toTimeString
+toLocaleString
+toLocaleDateString
+toLocaleTimeString
+valueOf
+getTime
+getFullYear
+getUTCFullYear
+getMonth
+getUTCMonth
+getDate
+getUTCDate
+getDay
+getUTCDay
+getHours
+getUTCHours
+getMinutes
+getUTCMinutes
+getSeconds
+getUTCSeconds
+getMilliseconds
+getUTCMilliseconds
+getTimezoneOffset
+setTime
+setMilliseconds
+setUTCMilliseconds
+setSeconds
+setUTCSeconds
+setMinutes
+setUTCMinutes
+setHours
+setUTCHours
+setDate
+setUTCDate
+setMonth
+setUTCMonth
+setFullYear
+setUTCFullYear
+toUTCString
+toISOString
+toJSON
+
+9.repexp
+
+正则表达式（英语：Regular Expression，在代码中常简写为regex、regexp或RE）使用单个字符串来描述、匹配一系列符合某个句法规则的字符串搜索模式。
+
+搜索模式可用于文本搜索和文本替换。
+
+正则表达式解析：
+
+var patt = /runoob/i
+
+/runoob/i  是一个正则表达式。
+
+runoob  是一个正则表达式主体 (用于检索)。
+
+i  是一个修饰符 (搜索不区分大小写)。
+
+
+正则表达式部分不理解，理解过后回来更新
