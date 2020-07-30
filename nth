@@ -1,0 +1,27 @@
+from pyecharts.charts import Bar
+from pyecharts import options as opts
+
+
+x3 = ['贵阳市','遵义市','毕节市','黔南州','黔东南州','铜仁市','六盘水市','黔西南州','安顺市','境外输入']
+y3 = [36,
+32,
+23,
+17,
+10,
+10,
+10,
+4,
+4,
+1
+]
+bar = (
+       Bar()
+       .add_xaxis(x3)
+       .add_yaxis(series_name='gongsi', y_axis=y3, bar_width=40)
+       .set_series_opts(label_opts=opts.LabelOpts(is_show=False))
+       .set_global_opts(title_opts=opts.TitleOpts(title=" ", subtitle=" "),
+                        legend_opts=opts.LegendOpts(is_show=False),
+                        yaxis_opts=opts.AxisOpts(name="数量"),
+                        xaxis_opts=opts.AxisOpts(name="时间"),)
+       )
+bar.render('pic3.html')
