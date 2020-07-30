@@ -1,0 +1,60 @@
+toLocaleString（返回这个数字在特定语言环境下的表示字符串）
+
+      语法：numObj.toLocaleString([locales [, options]])，option为可选，
+      “decimal” 用于纯数字格式；
+      “currency” 用于货币格式；
+      “percent” 用于百分比格式;
+      “unit” 用于单位格式。
+      其返回值：返回一个语言环境下的表示字符串。
+      
+      示例：
+      
+      var number = 3500;
+      console.log(number.toLocaleString()); // Displays "3,500" if in U.S. English locale
+      
+      关于locales的一些说明：
+      
+        locales 参数必须是一个 BCP 47 语言标记的字符串，或者是一个包括多个语言标记的数组。
+        如果 locales 参数未提供或者是 undefined，便会使用运行时默认的 locale。
+      
+      locales的一些示例：
+      
+           var number = 123456.789;
+
+           // 德国使用逗号作为小数分隔符，分位周期为千位
+          console.log(number.toLocaleString('de-DE'));
+          // → 123.456,789
+
+          // 在大多数阿拉伯语国家使用阿拉伯语数字
+          console.log(number.toLocaleString('ar-EG'));
+          // → ١٢٣٤٥٦٫٧٨٩
+
+          // 印度使用千位/拉克（十万）/克若尔（千万）分隔
+          console.log(number.toLocaleString('en-IN'));
+          // → 1,23,456.789
+
+          // nu 扩展字段要求编号系统，e.g. 中文十进制
+          console.log(number.toLocaleString('zh-Hans-CN-u-nu-hanidec'));
+          // → 一二三,四五六.七八九
+
+          // 当请求不支持的语言时，例如巴厘语，加入一个备用语言，比如印尼语
+          console.log(number.toLocaleString(['ban', 'id']));
+          // → 123.456,789
+          
+          
+          
+          Options的一些示例：
+          
+          var number = 123456.789;
+
+          // 要求货币格式
+          console.log(number.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }));
+          // → 123.456,79 €
+
+          // 日元不使用小数位
+          console.log(number.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY' }))
+          // → ￥123,457
+
+          // 限制三位有效数字
+          console.log(number.toLocaleString('en-IN', { maximumSignificantDigits: 3 }));
+          // → 1,23,000
