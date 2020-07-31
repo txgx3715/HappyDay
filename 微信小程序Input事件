@@ -1,0 +1,73 @@
+input
+在微信小程序中input使用的是原生组件，输入框。
+详细属性说明可以通过微信开放文档查阅。
+
+
+1.type 的合法值：
+值	                       说明	
+text	                文本输入键盘	
+number	              数字输入键盘	
+idcard	              身份证输入键盘	
+digit	                带小数点的数字键盘
+
+
+2.confirm-type 的合法值：
+值	                         说明	
+send	                 右下角按钮为“发送”	
+search	               右下角按钮为“搜索”	
+next	                 右下角按钮为“下一个”	
+go	                   右下角按钮为“前往”	
+done	                 右下角按钮为“完成”
+
+
+
+3.Bug & Tip
+tip: confirm-type的最终表现与手机输入法本身的实现有关，部分安卓系统输入法和第三方输入法可能不支持或不完全支持
+tip : input 组件是一个原生组件，字体是系统字体，所以无法设置 font-family
+tip : 在 input 聚焦期间，避免使用 css 动画
+tip : 对于将 input 封装在自定义组件中、而 form 在自定义组件外的情况， form 将不能获得这个自定义组件中 input 的值。此时需要使用自定义组件的 内置 behaviors wx://form-field
+tip : 键盘高度发生变化，keyboardheightchange事件可能会多次触发，开发者对于相同的height值应该忽略掉
+bug : 微信版本 6.3.30, focus 属性设置无效
+bug : 微信版本 6.3.30, placeholder 在聚焦时出现重影问题
+
+
+
+部分示例代码：
+
+Page({
+  data: {
+    focus: false,
+    inputValue: ''
+  },
+  bindKeyInput: function (e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
+  },
+  bindReplaceInput: function (e) {
+    var value = e.detail.value
+    var pos = e.detail.cursor
+    var left
+    if (pos !== -1) {
+      // 光标在中间
+      left = e.detail.value.slice(0, pos)
+      // 计算光标的位置
+      pos = left.replace(/11/g, '2').length
+    }
+
+    // 直接返回对象，可以对输入进行过滤处理，同时可以控制光标的位置
+    return {
+      value: value.replace(/11/g, '2'),
+      cursor: pos
+    }
+
+    // 或者直接返回字符串,光标在最后边
+    // return value.replace(/11/g,'2'),
+  },
+  bindHideKeyboard: function (e) {
+    if (e.detail.value === '123') {
+      // 收起键盘
+      wx.hideKeyboard()
+    }
+  }
+})
