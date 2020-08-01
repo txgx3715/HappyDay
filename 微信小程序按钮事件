@@ -1,0 +1,28 @@
+在所属页面的js界面中
+
+
+//加减事件按钮
+handletap(e){
+  //获取自定义属性operation
+  const operation = e.currentTarget.dataset.operation;
+  this.setData({
+    num:this.data.num + operation
+  })
+}
+
+在所属页面的wxml界面中
+
+<input type="text" bindinput="handleInput" />    
+
+//bindinput:在输入框输入过程中触发事件
+键盘输入时触发，event.detail = {value, cursor, keyCode}，keyCode 为键值，2.1.0 起支持，处理函数可以直接 return 一个字符串，将替换输入框的内容。
+
+<button bindtap="handletap" data-operation="{{1}}">+</button>
+<button bindtap="handletap" data-operation="{{-1}}">-</button>
+<view>{{num}}</view>
+
+//需要加入的点击事件
+1.bindtap(bindclick)
+2.无法在小程序当中的事件中直接传参
+3.通过自定义属性的方式来传递参数  data-operation = "{{x}}"即为自定义传参
+4.事件源中获取自定义属性  
