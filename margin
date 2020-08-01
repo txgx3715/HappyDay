@@ -1,0 +1,88 @@
+1.margin属性为给定元素设置所有四个（上下左右）方向的外边距属性。这是四个外边距属性设置的简写。
+四个外边距属性设置分别是： margin-top， margin-right， margin-bottom 和 margin-left 。指定的外边距允许为负数。
+
+2.margin语法
+
+margin: style                  /*单值语法  所有边缘 */  举例： margin: 1em; 
+margin: vertical horizontal    /*二值语法  纵向 横向 */  举例： margin: 5% auto; 
+margin: top horizontal bottom  /*三值语法 上 横向 下*/  举例： margin: 1em auto 2em; 
+margin: top right bottom left  /*四值语法 上 右 下 左*/  举例： margin: 2px 1em 0 auto; 
+
+margin: inherit
+
+3.margin取值
+接受1~4个可选参数，每个参数取值如下：
+
+1.<length>
+指定一个固定的宽度。可以为负数。
+
+2.<percentage>
+ <percentage> 相对于该元素的包含块的宽度（相对于该块的百分比）。该值可以为负数。
+ 
+3.auto
+浏览器会自动选择一个合适的margin来应用。它可以用于将一个块居中。
+比如，div { width:50%;  margin:0 auto; } 会把这个div容器水平居中。
+
+只有一个  值时，这个值会被指定给全部的 四个边.
+两个 值时，第一个值被匹配给 上和下, 第二个值被匹配给 左和右.
+三个 值时，第一个值被匹配给 上, 第二个值被匹配给 左和右, 第三个值被匹配给 下.
+四个 值时，会依次按 上、右、下、左 的顺序匹配 (即顺时针顺序).
+
+
+HTML示例：
+<div class="ex1">
+  margin:     auto;
+  background: gold;
+  width:      66%;
+</div>
+<div class="ex2">
+  margin:     20px 0 0 -20px;
+  background: gold;
+  width:      66%;
+</div>
+
+
+CSS示例：
+.ex1 {
+  margin: auto;
+  background: gold;
+  width: 66%;
+}
+.ex2 {
+  margin: 20px 0px 0 -20px;
+  background: gold;
+  width: 66%;
+}
+
+
+部分命令示例：
+
+margin: 5%;                /* 所有的边都是 5% 的边距 */
+
+margin: 10px;              /* 所有的边都是 10像素 的边距 */
+
+margin: 1.6em 20px;        /* 上和下边是 1.6字距, 左和右是 20像素 边距 */
+
+margin: 10px 3% 1em;       /* 上边 10像素, 左和右 3%, 下边 1字距 边距 */
+
+margin: 10px 3px 30px 5px; /* 上边 10像素, 右边 3像素, bottom 30px, left 5px margin */
+
+margin: 1em auto;          /* 上和下边 1字距 边距, 该盒子是水平居中的 */
+
+margin: auto;              /* 该盒子是水平居中的, 上下边距为0 */
+
+
+其他简要说明：
+使用 margin: 0 auto 水平居中;
+在现代浏览器中，如果要把一些东西水平居中，使用 display:flex; justify-content: center; .
+
+然而, 在一些老的浏览器，如IE8-9, 这些是不可用的. 想要把一个元素在其父元素中居中, 使用 margin: 0 auto;
+
+
+
+
+
+
+
+
+
